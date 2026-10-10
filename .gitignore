@@ -1,0 +1,5 @@
+.env
+.history/
+.netlify/
+node_modules/
+php/

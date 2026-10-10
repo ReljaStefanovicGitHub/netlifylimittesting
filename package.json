@@ -1,0 +1,13 @@
+{
+  "name": "email-sender",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemailer": "^6.10.0"
+  }
+}

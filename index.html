@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email pošiljalac</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape--1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--2" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="hero">
+      <p class="badge">Node.js</p>
+      <h1>Pošalji email</h1>
+      <p class="hero__lead">
+        HTML/CSS forma + Node backend (SMTP preko
+        <code>nodemailer</code>). Radi na <strong>Netlify</strong>
+        (<code>/.netlify/functions/send-email</code>), lokalno sa
+        <code>npm run dev</code>, ili bilo gde sa <code>npm start</code>
+        (Express na portu 3000).
+      </p>
+    </header>
+
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title" class="card__title">Nova poruka</h2>
+
+      <form id="email-form" class="form" novalidate>
+        <div class="field">
+          <label for="to">Primalac</label>
+          <input
+            type="email"
+            id="to"
+            name="to"
+            required
+            autocomplete="email"
+            placeholder="primalac@example.com"
+          />
+          <span class="field__error" data-error-for="to"></span>
+        </div>
+
+        <div class="field">
+          <label for="subject">Naslov</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            maxlength="200"
+            placeholder="Naslov poruke"
+          />
+          <span class="field__error" data-error-for="subject"></span>
+        </div>
+
+        <div class="field">
+          <label for="message">Poruka</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="8"
+            maxlength="10000"
+            placeholder="Tekst poruke…"
+          ></textarea>
+          <span class="field__error" data-error-for="message"></span>
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary" id="submit-btn">
+            <span class="btn__label">Pošalji</span>
+            <span class="btn__spinner" hidden aria-hidden="true"></span>
+          </button>
+          <button type="reset" class="btn btn--ghost">Obriši</button>
+        </div>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        Kopiraj <code>.env.example</code> u <code>.env</code> (Gmail App Password).
+        Na Netlify-u iste vrednosti kao <code>SMTP_*</code> i <code>FROM_*</code> env varijable.
+      </p>
+    </footer>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
